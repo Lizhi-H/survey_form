@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>survey form</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				background-color: rgba(176,252,233,0.8);
+			}
+			#title{
+				text-align: center;
+				line-height: 100px;
+			}
+			#survey-form{
+				height: auto;
+				width: 60%;
+				background-color: rgb(248, 248, 245);
+				margin:0 auto;
+				padding: 0 40px 30px 40px;
+				overflow: hidden;
+			}
+			#description{
+				text-align: center;
+				padding: 25px 0;
+			}
+			.name,.email,.age,.current-role,.recommendation,.favorite-part,.advice,.comments{
+				-ms-display: grid;
+				    display: grid;
+				-ms-grid-template-columns: 50% 50%;
+				    grid-template-columns: 50% 50%;
+				padding-bottom: 30px;
+			}
+			.recommendation-options,.advice-options{
+				-ms-display: grid;
+				    display: grid;
+				-ms-grid-template-columns: 10% 90%;
+				    grid-template-columns: 10% 90%;
+				-ms-justify-items: start;
+				    justify-items: start;
+				-ms-align-items: center;
+				    align-items: center;
+			}
+			#name,#email,#number,select{
+				height: 2.5em;
+				max-width: 250px;
+				border: 1px solid #e2e2e2;
+				border-radius: 3px;
+				text-indent: 1em;
+			}
+			textarea{
+				height: 5em;
+				border: 1px solid #e2e2e2;
+				border-radius: 3px;
+				text-indent: 1em;
+				max-width: 250px;
+			}
+			#submit{
+				height: 40px;
+				width: 90px;
+				font-size: 16px;
+				font-weight: 400;
+				color: white;
+				background: rgba(51, 204, 255, .7);
+				display: block;
+				margin: 0 auto;
+				border-radius: 5px;
+			}
+			#name-label,#email-label,#number-label,div>p{
+				text-align: right;
+				margin-right: 20px;
+			}
+			@media screen and (max-width: 500px){
+				#name-label,#email-label,#number-label,div>p{
+				    text-align: left;
+				    margin-bottom: 10px;
+			    }
+			    .name,.email,.age,.current-role,.recommendation,.favorite-part,.advice,.comments{
+				    -ms-display: grid;
+				        display: grid;
+				    -ms-grid-template-columns: 1fr;
+				        grid-template-columns: 1fr;
+				    padding-bottom: 30px;
+			    }
+			}
+		</style>
+	</head>
+	<body>
+		<h1 id="title">Survey Form</h1>
+		<!--form content-->
+		<form id="survey-form" method="post" autocomplete="off">
+			<p id="description">Let us know how we can improve freeCodeCamp</p>
+			<!--basic information-->
+			<div class="name">
+				<label id="name-label"><sup>*</sup>Name:</label>
+				<input type="text" name="name" id="name" placeholder="Enter your name" required="required" autofocus="autofocus">
+			</div>
+			<div class="email">
+				<label id="email-label"><sup>*</sup>Email:</label>
+				<input type="email" name="email" id="email" placeholder="Enter your email" required="required">
+			</div>
+			<div class="age">
+				<label id="number-label"><sup>*</sup>Age:</label>
+				<input type="number" name="age" id="number" min="0" max="150" placeholder="Age" required="required">
+			</div>
+			<!--current role-->
+			<div class="current-role">
+				<p>Which option best describes your current role?</p>
+				<select id="dropdown" required="required">
+					<label>Select an option</label>
+					<option value="Student">Student</option>
+					<option value="Full Time Job">Full Time Job</option>
+					<option value="Full Time Learner">Full Time Learner</option>
+					<option value="Prefer not to say">Prefer not to say</option>
+					<option value="Other">Other</option>
+				</select>
+			</div>
+			<!--recommendation-->
+			<div class="recommendation">
+				<p><sup>*</sup>How likely is that you would recommend freeCodeCamp to a friend?</p>
+				<div class="recommendation-options">
+					<input type="radio" name="degree-of-satisfaction" value="definitely" id="definitely">
+					<label for="definitely">Definitely</label>
+					<input type="radio" name="degree-of-satisfaction" value="maybe" id="maybe">
+					<label for="maybe">Maybe</label>
+					<input type="radio" name="degree-of-satisfaction" value="not-sure" id="not-sure">
+					<label for="not-sure">Not sure</label>
+				</div>
+			</div>
+			<!--favorite part-->
+			<div class="favorite-part">
+				<p>What do you like most in FCC:</p>
+				<select>
+					<option>Select an option</option>
+					<option value="Challenges">Challenges</option>
+					<option value="Projects">Projects</option>
+					<option value="Community">Community</option>
+					<option value="Open Source">Open Source</option>
+				</select>
+			</div>
+			<!--advice-->
+			<div class="advice">
+				<p>Things that should be improved in the future (Check all that apply):</p>
+				<div class="advice-options">
+					<input type="checkbox" value="Front-end project" id="front-end"><label for="front-end">Front-end project</label>
+					<input type="checkbox" value="Back-end project" id="back-end"><label for="back-end">Back-end project</label>
+					<input type="checkbox" value="Data Visualization" id="data-visualization"><label for="data-visualization">Data Visualization</label>
+					<input type="checkbox" value="Challenges" id="challenges"><label for="challenges">Challenges</label>
+					<input type="checkbox" value="Open source Community" id="open-source"><label for="open-source">Open source Community</label>
+					<input type="checkbox" value="Gitter help rooms" id="help-rooms"><label for="help-rooms">Gitter help rooms</label>
+					<input type="checkbox" value="Videos" id="videos"><label for="videos">Videos</label>
+					<input type="checkbox" value="City Meetups" id="meetups"><label for="meetups">City Meetups</label>
+					<input type="checkbox" value="Wiki" id="wiki"><label for="wiki">Wiki</label>
+					<input type="checkbox" value="Forum" id="forum"><label for="forum">Forum</label>
+					<input type="checkbox" value="Additional Courses" id="additional-courses"><label for="additional-courses">Additional Courses</label>
+				</div>
+			</div>
+			<!--comments-->
+			<div class="comments">
+				<p>Any Comments or Suggestion?</p>
+				<textarea id="comments" name="comments" placeholder="Enter your comment here"></textarea>
+			</div>
+			<!--submit-->
+			<button id="submit">submit</button>
+		</form>
+	</body>
+</html>
